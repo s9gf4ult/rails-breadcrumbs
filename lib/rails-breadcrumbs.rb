@@ -27,6 +27,12 @@ module Rails
         end.join(" #{separator} ").html_safe
       end
 
+      def raw_breadcrumbs
+        @breadcrumbs.map do |txt, path|
+          link_to_unless (path.blank? || current_page?(path)), content_tag(:span, h(txt)), path
+        end
+      end
+
     end
 
   end
