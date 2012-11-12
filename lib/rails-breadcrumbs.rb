@@ -23,7 +23,7 @@ module Rails
 
       def breadcrumbs(separator = "&rsaquo;")
         @breadcrumbs.map do |txt, path|
-          link_to_unless (path.blank? || current_page?(path)), h(txt), path
+          link_to_unless (path.blank? || current_page?(path)), content_tag(:span, h(txt)), path
         end.join(" #{separator} ").html_safe
       end
 
